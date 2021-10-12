@@ -1,0 +1,31 @@
+
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8"  >
+    <div class="container-fluid">
+      <div class="header-body">
+        <!-- Card stats -->
+        <div class="row" *ngIf="NftData && NftData.length > 0" >
+          <div class="col-xl-3 col-lg-6" *ngFor="let item of NftData">
+            <div class="card" style="margin-top: 20px;" >
+                <img class="card-img-top"  style="height: 18rem;"  src="{{item.image}}" alt="{{item.name}}" loading="lazy">
+                <div class="card-body">
+                  <h5 class="card-title">{{item.name}}</h5>
+                  <p class="card-text">{{item.description}}</p>
+                  <div style="font-size: small;">
+                    <span class="card-title">Owned by</span> <span class="text-warning mr-2"> {{item.original_owner.toString().slice(0, 10) }}</span> <br/>
+                  </div>
+
+                  <div style="font-size: small;">
+                    <span >Created by:</span>
+                     <span class="text-warning mr-2"> {{item.created_by_address.toString().slice(0, 10) }}</span> <br/>
+                  </div>
+                  
+                 
+                </div>
+              </div>
+          </div>
+        </div>
+
+        <h3 *ngIf="NftData && NftData.length == 0" style="color: white;">No NFT's added to wallet yet</h3>
+      </div>
+    </div>
+  </div>
